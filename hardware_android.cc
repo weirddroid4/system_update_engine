@@ -210,4 +210,8 @@ void HardwareAndroid::SetFirstActiveOmahaPingSent() {
   return;
 }
 
+bool HardwareAndroid::IsTWRP() const {
+  return GetBoolProperty("ro.twrp.boot", true);
+}
+
 }  // namespace chromeos_update_engine

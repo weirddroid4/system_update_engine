@@ -50,6 +50,7 @@ class HardwareAndroid final : public HardwareInterface {
   int64_t GetBuildTimestamp() const override;
   bool GetFirstActiveOmahaPingSent() const override;
   void SetFirstActiveOmahaPingSent() override;
+  bool IsTWRP() const override;
 
  private:
   DISALLOW_COPY_AND_ASSIGN(HardwareAndroid);

@@ -103,6 +103,8 @@ class HardwareInterface {
   // Persist the fact that first active ping was sent to omaha. It bails out if
   // it fails.
   virtual void SetFirstActiveOmahaPingSent() = 0;
+
+  virtual bool IsTWRP() const = 0;
 };
 
 }  // namespace chromeos_update_engine
