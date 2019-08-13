@@ -53,6 +53,9 @@ class FakeHardware : public HardwareInterface {
     return is_oobe_complete_;
   }
 
+  bool IsTWRP() const override { return is_twrp_; }
+
+
   std::string GetHardwareClass() const override { return hardware_class_; }
 
   std::string GetFirmwareVersion() const override { return firmware_version_; }
@@ -104,6 +107,11 @@ class FakeHardware : public HardwareInterface {
     are_dev_features_enabled_ = are_dev_features_enabled;
   }
 
+  void SetIsTWRP(bool is_twrp) {
+    is_twrp_ = is_twrp;
+  }
+
+
   // Sets the SetIsOOBEEnabled to |is_oobe_enabled|.
   void SetIsOOBEEnabled(bool is_oobe_enabled) {
     is_oobe_enabled_ = is_oobe_enabled;
@@ -145,6 +153,7 @@ class FakeHardware : public HardwareInterface {
   bool are_dev_features_enabled_{false};
   bool is_oobe_enabled_{true};
   bool is_oobe_complete_{true};
+  bool is_twrp_{true};
   base::Time oobe_timestamp_{base::Time::FromTimeT(1169280000)}; // Jan 20, 2007
   std::string hardware_class_{"Fake HWID BLAH-1234"};
   std::string firmware_version_{"Fake Firmware v1.0.1"};
